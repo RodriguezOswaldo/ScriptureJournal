@@ -8,22 +8,22 @@ namespace ScriptureJournal.Models
 {
     public class Journal
     {
-    
+
         public int ID { get; set; }
 
-        [StringLength(60, MinimumLength = 1)]
+        //[StringLength(60, MinimumLength = 1)]
         public string Book { get; set; }
 
-        [StringLength(60, MinimumLength = 1)]
+        //[StringLength(60, MinimumLength = 1)]
         public string BookInScriptures { get; set; }
 
-        [Range(1, 100), DataType(DataType.Custom)]
+        //[Range(1, 100), DataType(DataType.Custom)]
         public int Chapter { get; set; }
 
-        [Range(1, 100), DataType(DataType.Custom)]
+        //[Range(1, 100), DataType(DataType.Custom)]
         public int Verse { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$"), Required, StringLength(30)]
+       // [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$"), Required, StringLength(30)]
         public string Comments { get; set; }
 
         [DataType(DataType.Date)]

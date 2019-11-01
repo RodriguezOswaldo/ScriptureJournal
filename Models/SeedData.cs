@@ -24,34 +24,37 @@ namespace ScriptureJournal.Models
                 context.Journal.AddRange(
                     new Journal
                     {
-                        Book = "When Harry Met Sally",
+                        Book = "Book of Mormon",
                         DateAdded = DateTime.Parse("1989-2-12"),
-                        BookInScriptures = "Romantic Comedy",
-                        Chapter = 1
+                        BookInScriptures = "Alma",
+                        Chapter = 37,
+                        Verse = 37
                     },
 
                     new Journal
                     {
-                        Book = "Ghostbusters ",
+                        Book = "New Testament",
                         DateAdded = DateTime.Parse("1984-3-13"),
-                        BookInScriptures = "Comedy",
-                        Chapter = 3
+                        BookInScriptures = "Matthew",
+                        Chapter = 3,
+                        Verse = 18
                     },
 
                     new Journal
                     {
-                        Book = "Ghostbusters 2",
+                        Book = "Doctrine & Covenants",
                         DateAdded = DateTime.Parse("1986-2-23"),
-                        BookInScriptures = "Comedy",
-                        Chapter = 9
+                        BookInScriptures = "Section",
+                        Chapter = 89
                     },
 
                     new Journal
                     {
-                        Book = "Rio Bravo",
+                        Book = "Pearl of Great Price",
                         DateAdded = DateTime.Parse("1959-4-15"),
-                        BookInScriptures = "Western",
-                        Chapter = 4
+                        BookInScriptures = "Moses",
+                        Chapter = 1,
+                        Verse = 18
                     }
                 );
                 context.SaveChanges();
