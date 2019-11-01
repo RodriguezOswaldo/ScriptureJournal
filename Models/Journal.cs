@@ -25,6 +25,7 @@ namespace ScriptureJournal.Models
 
        // [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$"), Required, StringLength(30)]
         public string Comments { get; set; }
+        [Display(Name= "Date Added")]
 
         [DataType(DataType.Date)]
         public DateTime DateAdded { get; set; }
