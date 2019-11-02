@@ -40,9 +40,12 @@ namespace ScriptureJournal.Pages.Scriptures
             var books = from m in _context.Journal
                 select m;
 
+           // var comment = from m in _context.Journal
+             //   select m;
+
             if (!string.IsNullOrEmpty(SearchString))
             {
-                books = books.Where(s => s.Book.Contains(SearchString));
+                books = books.Where(s => s.Comments.Contains(SearchString));
             }
 
             if (!string.IsNullOrEmpty(Comments))
@@ -51,14 +54,17 @@ namespace ScriptureJournal.Pages.Scriptures
             }
             Book = new SelectList(await genreQuery.Distinct().ToListAsync());
             Journal = await books.ToListAsync();
+            //Journal = await comment.ToListAsync();
 
 //            var books = from m in _context.Journal
 //                        select m;
+
+
 //            if (!string.IsNullOrEmpty(SearchString))
 //            {
 //                books = books.Where(s => s.Book.Contains(SearchString));
 //            }
-//              The second "Journal" in this line was the problem 
+//              The second "Journal" in this statm 
 //            Journal = await books.Journal.ToListAsync();
         }
     }
