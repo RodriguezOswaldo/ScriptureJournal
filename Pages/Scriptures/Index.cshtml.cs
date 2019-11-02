@@ -18,25 +18,48 @@ namespace ScriptureJournal.Pages.Scriptures
         {
             _context = context;
         }
+       
+
         [BindProperty(SupportsGet = true)]
-        public IList<Journal> Journal { get; set; }
         public string SearchString { get; set; }
         // Requires using Microsoft.AspNetCore.Mvc.Rendering;
-        public SelectList Books { get; set; }
+        public SelectList Book { get; set; }
+
         [BindProperty(SupportsGet = true)]
-        public string BooksInScriptures { get; set; }
+        public string Comments { get; set; }
 
-        
+        public IList<Journal> Journal { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
+            // Use LINQ to get list of genres.
+            IQueryable<string> genreQuery = from m in _context.Journal
+                orderby m.Book
+                select m.Book;
+
             var books = from m in _context.Journal
-                         select m;
+                select m;
+
             if (!string.IsNullOrEmpty(SearchString))
             {
                 books = books.Where(s => s.Book.Contains(SearchString));
             }
-            Journal = await _context.Journal.ToListAsync();
+
+            if (!string.IsNullOrEmpty(Comments))
+            {
+                books = books.Where(x => x.Book == Comments);
+            }
+            Book = new SelectList(await genreQuery.Distinct().ToListAsync());
+            Journal = await books.ToListAsync();
+
+//            var books = from m in _context.Journal
+//                        select m;
+//            if (!string.IsNullOrEmpty(SearchString))
+//            {
+//                books = books.Where(s => s.Book.Contains(SearchString));
+//            }
+//              The second "Journal" in this line was the problem 
+//            Journal = await books.Journal.ToListAsync();
         }
     }
 }
