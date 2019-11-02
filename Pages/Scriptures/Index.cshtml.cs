@@ -18,8 +18,7 @@ namespace ScriptureJournal.Pages.Scriptures
         {
             _context = context;
         }
-       
-
+        
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
         // Requires using Microsoft.AspNetCore.Mvc.Rendering;
