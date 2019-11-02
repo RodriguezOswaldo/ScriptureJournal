@@ -5,6 +5,7 @@ body {
     padding-bottom: 20px;
     background: #CFE0C3;
     color: black;
+    font-family: 
 }
 
 /* Wrapping element */
@@ -30,10 +31,26 @@ body {
     margin: 15px;
 }
 .navbar {
-    background: #40798C;
+    /* background: #40798C;*/
+    background: #376777;
+}
+.table th {
+    font-size: 1.2em;
 }
 .navbar li a {
     color: black;
+}
+footer {
+    text-align: center;
+    font-size: smaller;
+    font-weight: bolder;
+}
+select, input {
+    background: #7EA5B2;
+    border: none;
+    border-bottom: 1px solid #376777;
+    box-shadow: 1px 1px 1px #666;
+    font-size: 1.1em;
 }
 
 /* Hide/rearrange for smaller screens */
